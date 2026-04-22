@@ -10,23 +10,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+
     <style>
-     :root {
+        :root {
             --purple: #6a1bff;
             --purple-2: #8b5dff;
             --text-soft: #cfd3ea;
             --border-soft: rgba(255, 255, 255, 0.08);
-              --bg:#05060b;
-  --bg2:#0b0d16;
-  --card:#0c1018;
-  --line:rgba(255,255,255,.08);
-  --text:#ffffff;
-  --muted:#b8bfd6;
-
-  --red:#ff4b5c;
-  --green:#18c37d;
+            --bg: #05060b;
+            --bg2: #0b0d16;
+            --card: #0c1018;
+            --line: rgba(255, 255, 255, .08);
+            --text: #ffffff;
+            --muted: #b8bfd6;
+            --red: #ff4b5c;
+            --green: #18c37d;
         }
-
 
         * {
             box-sizing: border-box;
@@ -41,33 +40,22 @@
             color: var(--text);
         }
 
-        /* .navbar-custom {
-            background: rgba(5, 6, 11, .92);
+        .navbar {
+            background: rgba(5, 6, 11, 0.92);
             backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(255, 255, 255, .05);
-            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .subscribe-btn {
-            background: var(--red);
-            border: none;
-            color: #fff;
-            padding: 5px 16px;
-            border-radius: 7px;
-            font-weight: 600;
+        .youtube-btn {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            text-decoration: none;
-        }
-
-        .subscribe-btn:hover {
-            background: #dc3545;
-            color: #fff;
+            border-radius: 7px;
+            font-weight: 600;
+            padding: 5px 16px;
         }
 
         .nav-link {
-            color: rgba(255, 255, 255, .78) !important;
+            color: rgba(255, 255, 255, 0.78) !important;
             font-weight: 600;
         }
 
@@ -75,82 +63,7 @@
             color: #fff !important;
         }
 
-        .listen-btn {
-            background: linear-gradient(135deg, var(--purple), var(--purple2));
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 8px 20px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 14px 30px rgba(106, 27, 255, .35);
-        }
-
-        .listen-btn:hover {
-            color: #fff;
-        }
- */
-
-    .youtube-btn {
-            display: inline-flex;
-            align-items: center;
-            border-radius: 7px;
-            font-weight: 600;
-            padding: 5px 16px;
-        }
-
-.navbar-custom{
-  background:rgba(5,6,11,.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,.05);
-  padding:14px 0;
-}
-
-/* .subscribe-btn{
-  background:var(--red);
-  border:none;
-  color:#fff;
-  height:46px;
-  padding:0 20px;
-  border-radius:14px;
-  font-weight:700;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-}
-
-.subscribe-btn:hover{
-  background:#ff384c;
-  color:#fff;
-} */
-
-.nav-link{
-  color:rgba(255,255,255,.78)!important;
-  font-weight:600;
-}
-
-.nav-link:hover{
-  color:#fff!important;
-}
-
-.listen-btn{
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
-  color:#fff;
-  border:none;
-  border-radius:16px;
-  padding:12px 26px;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:0 14px 30px rgba(106,27,255,.35);
-}
-
-.listen-btn:hover{
-  color:#fff;
-}
-
-
- .btn-purple {
+        .btn-purple {
             background: linear-gradient(135deg, var(--purple), var(--purple-2));
             border: none;
             color: #fff;
@@ -162,47 +75,48 @@
             transform: translateY(-1px);
         }
 
-
-
-
         .page-space {
-            height: 95px;
+            height: 86px;
         }
 
         .library-wrap {
-            max-width: 1180px;
-            margin: 0 auto 40px;
-            background: rgba(12, 16, 24, .9);
-            border: 1px solid rgba(255, 255, 255, .06);
-            border-radius: 24px;
+            max-width: 1240px;
+            margin: 0 auto 24px;
+            background: rgba(12, 16, 24, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
         }
 
         .library-top {
-            padding: 20px;
+            padding: 16px 18px;
             border-bottom: 1px solid var(--line);
-            background: rgba(255, 255, 255, .02);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .library-title {
-            font-size: 2rem;
+            font-size: 1.55rem;
             font-weight: 800;
-            margin-bottom: 8px;
+            line-height: 1.1;
+            margin-bottom: 6px;
         }
 
         .library-sub {
             color: var(--muted);
-            margin-bottom: 18px;
+            margin-bottom: 14px;
+            font-size: 0.9rem;
         }
 
         .filter-input,
         .filter-select {
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: #fff;
-            min-height: 48px;
-            border-radius: 12px;
+            min-height: 42px;
+            font-size: 0.92rem;
+            border-radius: 10px;
+            padding: 0.55rem 0.9rem;
         }
 
         .filter-input::placeholder {
@@ -211,8 +125,8 @@
 
         .filter-input:focus,
         .filter-select:focus {
-            background: rgba(255, 255, 255, .08);
-            border-color: rgba(139, 93, 255, .4);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(139, 93, 255, 0.4);
             color: #fff;
             box-shadow: none;
         }
@@ -224,51 +138,56 @@
         .chip-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            padding: 16px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            gap: 8px;
+            padding: 12px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .chip {
-            padding: 9px 14px;
+            padding: 7px 12px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, .04);
-            border: 1px solid rgba(255, 255, 255, .07);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             color: #fff;
-            font-size: .9rem;
+            font-size: 0.82rem;
             cursor: pointer;
-            transition: .2s;
+            transition: 0.2s;
+            line-height: 1.2;
         }
 
         .chip.active {
-            background: rgba(106, 27, 255, .16);
-            border-color: rgba(139, 93, 255, .28);
+            background: rgba(106, 27, 255, 0.16);
+            border-color: rgba(139, 93, 255, 0.28);
         }
 
         .list-head {
-            padding: 14px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            padding: 10px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--muted);
-            font-size: .78rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: .08em;
-            background: rgba(255, 255, 255, .015);
+            letter-spacing: 0.08em;
+            background: rgba(255, 255, 255, 0.015);
         }
 
         .track-row {
-            padding: 16px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, .05);
-            transition: .2s;
+            padding: 12px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.2s;
         }
 
         .track-row:hover {
-            background: rgba(255, 255, 255, .02);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .track-row .row {
+            min-height: 58px;
         }
 
         .cover {
-            width: 56px;
-            height: 56px;
-            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
             background: linear-gradient(135deg, #24345a, #7b3fff);
             flex-shrink: 0;
         }
@@ -294,81 +213,85 @@
         }
 
         .track-name {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
+            line-height: 1.2;
         }
 
         .track-artist {
             color: var(--muted);
-            font-size: .92rem;
+            font-size: 0.84rem;
         }
 
         .tag {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 5px 10px;
+            padding: 4px 9px;
             border-radius: 999px;
-            font-size: .76rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .tag.free {
-            background: rgba(24, 195, 125, .14);
-            border: 1px solid rgba(24, 195, 125, .28);
+            background: rgba(24, 195, 125, 0.14);
+            border: 1px solid rgba(24, 195, 125, 0.28);
             color: #92f0c7;
         }
 
         .tag.paid {
-            background: rgba(106, 27, 255, .14);
-            border: 1px solid rgba(139, 93, 255, .28);
+            background: rgba(106, 27, 255, 0.14);
+            border: 1px solid rgba(139, 93, 255, 0.28);
             color: #e0d3ff;
         }
 
         .wave {
-            height: 46px;
+            height: 38px;
             display: flex;
             align-items: flex-end;
             gap: 2px;
             opacity: .65;
-            min-width: 180px;
+            min-width: 100%;
+            max-width: 100%;
         }
 
         .wave span {
             display: block;
-            width: 3px;
+            width: 2px;
             border-radius: 999px;
             background: rgba(190, 197, 222, .56);
         }
 
         .meta-main {
-            font-size: .92rem;
+            font-size: .86rem;
             font-weight: 600;
+            line-height: 1.2;
         }
 
         .meta-sub {
             display: block;
             color: var(--muted);
-            font-size: .82rem;
+            font-size: .76rem;
             margin-top: 2px;
         }
 
         .action-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             justify-content: flex-end;
         }
 
         .btn-mini {
-            border-radius: 12px;
-            padding: 10px 14px;
-            font-size: .9rem;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: .82rem;
             font-weight: 600;
             border: none;
             text-decoration: none;
+            line-height: 1.2;
         }
 
         .btn-preview {
@@ -384,99 +307,130 @@
         }
 
         .btn-buy {
-            background: linear-gradient(135deg, var(--purple), var(--purple2));
+            background: linear-gradient(135deg, var(--purple), var(--purple-2));
             color: #fff;
         }
 
         .audio-box {
             display: none;
-            margin-top: 14px;
+            margin-top: 10px;
         }
 
         .audio-box audio {
             width: 100%;
-            height: 42px;
+            height: 40px;
         }
 
         .empty-note {
-            padding: 18px 20px 22px;
+            padding: 14px 18px 18px;
             color: var(--muted);
-            font-size: .92rem;
+            font-size: .85rem;
         }
 
         footer {
             border-top: 1px solid rgba(255, 255, 255, .06);
-            padding: 24px 0;
+            padding: 18px 0;
             color: var(--muted);
+            font-size: .9rem;
+        }
+
+        @media (min-width: 992px) {
+
+            .track-row .row>div:nth-child(2),
+            .track-row .row>div:nth-child(3),
+            .track-row .row>div:nth-child(4),
+            .track-row .row>div:nth-child(5) {
+                display: flex;
+                align-items: center;
+            }
+
+            .track-row .row>div:nth-child(5) {
+                justify-content: flex-end;
+            }
         }
 
         @media (max-width: 991.98px) {
-            .action-group {
-                justify-content: flex-start;
+            .library-top {
+                padding: 14px;
+            }
+
+            .chip-bar {
+                padding: 10px 14px;
+            }
+
+            .track-row {
+                padding: 14px;
             }
 
             .wave {
-                min-width: 100%;
+                margin-top: 2px;
             }
 
-            .track-name {
-                white-space: normal;
+            .action-group {
+                justify-content: flex-start;
             }
         }
 
         @media (max-width: 767.98px) {
-            .library-title {
-                font-size: 1.6rem;
-            }
-
             .page-space {
-                height: 88px;
+                height: 82px;
             }
 
             .library-wrap {
-                border-radius: 18px;
+                border-radius: 16px;
+            }
+
+            .library-title {
+                font-size: 1.35rem;
+            }
+
+            .library-sub {
+                font-size: 0.85rem;
+            }
+
+            .filter-input,
+            .filter-select {
+                min-height: 40px;
+                font-size: 0.88rem;
+            }
+
+            .chip {
+                font-size: 0.78rem;
+                padding: 6px 10px;
+            }
+
+            .track-row {
+                padding: 12px 14px;
+            }
+
+            .cover {
+                width: 44px;
+                height: 44px;
+            }
+
+            .track-name {
+                font-size: 0.9rem;
+            }
+
+            .btn-mini {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .action-group {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                width: 100%;
             }
         }
     </style>
 </head>
 
 <body>
-<!-- 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
-        <div class="container">
-            <a href="https://www.youtube.com/@Imaginestrings" target="_blank" class=" btn btn-danger subscribe-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                    <path
-                        d="M8.051 1.999h-.102C6.347 2 4.52 2.02 3.284 2.153 2.05 2.285 1.18 2.577.527 3.23-.125 3.882-.417 4.752-.55 5.986-.682 7.22-.702 9.047-.703 10.65v.102c.001 1.603.021 3.43.153 4.664.133 1.234.425 2.104 1.078 2.757.653.652 1.523.945 2.757 1.077 1.236.133 3.063.153 4.665.154h.102c1.602-.001 3.429-.021 4.665-.154 1.234-.132 2.104-.425 2.757-1.077.653-.653.945-1.523 1.078-2.757.132-1.235.152-3.062.153-4.664v-.102c-.001-1.603-.021-3.43-.153-4.664-.133-1.234-.425-2.104-1.078-2.757-.653-.653-1.523-.945-2.757-1.077C11.48 2.02 9.653 2 8.051 1.999zm-1.55 4.5 4.5 2.5-4.5 2.5v-5z" />
-                </svg>
-                Subscribe
-            </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="#">Audio Library</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#album">Album</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank">Spotify</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/@Imaginestrings"
-                            target="_blank">YouTube</a></li>
-                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                        <a href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank"
-                            class="listen-btn">
-                            Listen Now
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container py-2">
             <a href="https://www.youtube.com/@Imaginestrings" target="_blank" class="btn btn-danger youtube-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"
@@ -492,12 +446,17 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
                     <li class="nav-item"><a class="nav-link" href="./library.html">Audio Libary</a></li>
-
                     <li class="nav-item"><a class="nav-link" href="#album">Album</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#spotify">Spotify</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#youtube">YouTube</a></li>
-                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-purple px-4"
-                            href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank">Listen Now</a>
+                    <li class="nav-item"><a class="nav-link"
+                            href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl"
+                            target="_blank">Spotify</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/@Imaginestrings"
+                            target="_blank">YouTube</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-purple px-4"
+                            href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank">
+                            Listen Now
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -510,8 +469,7 @@
         <div class="library-wrap">
             <div class="library-top">
                 <div class="library-title">Music Library</div>
-                <div class="library-sub">Pixabay-style audio list with filter, genre, preview, free download and paid
-                    buy options.</div>
+                <div class="library-sub">Browse, preview, download or buy music.</div>
 
                 <div class="row g-3">
                     <div class="col-lg-4">
@@ -801,7 +759,8 @@
                     </div>
                 </div>
 
-                <div class="track-row track-item" data-title="Beneath the Noise" data-genre="nu metal" data-type="paid">
+                <div class="track-row track-item" data-title="Beneath the Noise" data-genre="nu metal"
+                    data-type="paid">
                     <div class="row g-3 align-items-center">
                         <div class="col-lg-3">
                             <div class="d-flex align-items-center gap-3">
@@ -849,7 +808,7 @@
             </div>
 
             <div class="empty-note">
-                Replace the mp3 paths, download links and buy links with your real files.
+                Replace demo audio, download and buy links with your real files.
             </div>
         </div>
     </div>
@@ -943,14 +902,10 @@
                 document.querySelectorAll('.audio-box').forEach(b => {
                     b.style.display = 'none';
                     const audio = b.querySelector('audio');
-                    if (audio) {
-                        audio.pause();
-                    }
+                    if (audio) audio.pause();
                 });
 
-                if (!isOpen) {
-                    box.style.display = 'block';
-                }
+                if (!isOpen) box.style.display = 'block';
             });
         });
 
