@@ -58,6 +58,14 @@
             align-items: end;
         }
 
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 7px;
+            font-weight: 600;
+            padding: 5px 16px;
+        }
+
         .brand-col {
             display: flex;
             flex-direction: column-reverse;
@@ -107,11 +115,11 @@
         }
 
         .hero {
-            min-height: 92vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             text-align: center;
-            padding: 7rem 0 4rem;
+            padding: 4rem 0 0rem;
         }
 
         .hero-logo {
@@ -150,7 +158,7 @@
         }
 
         .section-pad {
-            padding: 1.5rem 0;
+            padding: 0.2rem 0;
         }
 
         .mini-label {
@@ -220,19 +228,68 @@
             /* background: #000; */
         }
 
-        .footer-link {
-            color: rgba(255, 255, 255, 0.72);
-            text-decoration: none;
-            margin-left: 1rem;
+        .footer-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .footer-link:hover {
+        .footer-brand {
+            font-weight: 800;
+            letter-spacing: -0.03em;
             color: #fff;
         }
 
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
-            background: rgba(0, 0, 0, 0.2);
+        .footer-brand span {
+            color: #8b5dff;
+        }
+
+        .footer-title {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text,
+        .footer-copy {
+            color: #cfd3ea;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-links a,
+        .footer-bottom-link {
+            color: rgba(255, 255, 255, 0.72);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover,
+        .footer-bottom-link:hover {
+            color: #8b5dff;
+        }
+
+        .footer-social {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-social:hover {
+            background: rgba(106, 27, 255, 0.18);
+            border-color: rgba(139, 93, 255, 0.35);
+            color: #fff;
+        }
+
+        .footer-divider {
+            border-color: rgba(255, 255, 255, 0.08);
         }
 
         @media (max-width: 767px) {
@@ -244,14 +301,31 @@
                 min-height: 430px;
             }
         }
+        @media (max-width: 767.98px) {
+  .footer-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-text,
+  .footer-copy,
+  .footer-links a,
+  .footer-bottom-link {
+    font-size: 0.92rem;
+  }
+}
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container py-2">
-            <a class="navbar-brand" href="#home">
-                <img src="assets/logo2.png" alt="ImagineStrings Logo" class="nav-logo">
+            <a href="https://www.youtube.com/@Imaginestrings" target="_blank" class="btn btn-danger youtube-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"
+                    class="me-2">
+                    <path
+                        d="M8.051 1.999h-.102C6.347 2 4.52 2.02 3.284 2.153 2.05 2.285 1.18 2.577.527 3.23-.125 3.882-.417 4.752-.55 5.986-.682 7.22-.702 9.047-.703 10.65v.102c.001 1.603.021 3.43.153 4.664.133 1.234.425 2.104 1.078 2.757.653.652 1.523.945 2.757 1.077 1.236.133 3.063.153 4.665.154h.102c1.602-.001 3.429-.021 4.665-.154 1.234-.132 2.104-.425 2.757-1.077.653-.653.945-1.523 1.078-2.757.132-1.235.152-3.062.153-4.664v-.102c-.001-1.603-.021-3.43-.153-4.664-.133-1.234-.425-2.104-1.078-2.757-.653-.653-1.523-.945-2.757-1.077C11.48 2.02 9.653 2 8.051 1.999zm-1.55 4.5 4.5 2.5-4.5 2.5v-5z" />
+                </svg>
+                Subscribe
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
@@ -281,8 +355,11 @@
                 <a href="https://www.youtube.com/@Imaginestrings" target="_blank"
                     class="btn btn-outline-light btn-lg px-4">Open YouTube</a>
             </div>
+
         </div>
+
     </section>
+
 
     <section class="section-pad" id="album">
         <div class="container">
@@ -304,6 +381,8 @@
 
     <section class="section-pad">
         <div class="container text-center">
+            <br>
+                  <br>
             <p class="mini-label">Style</p>
             <h2 class="section-title">Core sound</h2>
             <div class="mt-4">
@@ -328,19 +407,84 @@
             </div>
         </div>
     </section>
+    <br>
+    <br>
 
-    <footer class="py-4">
-        <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
-            <div>
-                <strong>ImagineStrings</strong>
-            </div>
-            <div>
-                <a class="footer-link" href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl"
-                    target="_blank">Spotify</a>
-                <a class="footer-link" href="https://www.youtube.com/@Imaginestrings" target="_blank">YouTube</a>
-            </div>
+<footer class="footer-section py-5">
+  <div class="container">
+    <div class="row gy-4 text-center text-lg-start">
+
+      <div class="col-12 col-lg-4">
+        <h4 class="footer-brand mb-3">Imagine<span>Strings</span></h4>
+        <p class="footer-text mb-3">
+          AI based music channel focused on alternative rock, cinematic sound, epic sound, rap rock and nu metal inspired music.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2">
+          <a href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank" class="footer-social">
+            Spotify
+          </a>
+          <a href="https://www.youtube.com/@Imaginestrings" target="_blank" class="footer-social">
+            YouTube
+          </a>
         </div>
-    </footer>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <h6 class="footer-title">Quick Links</h6>
+        <ul class="footer-links list-unstyled mb-0">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#album">Album</a></li>
+          <li><a href="#spotify">Spotify</a></li>
+          <li><a href="#youtube">YouTube</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <h6 class="footer-title">Genres</h6>
+        <ul class="footer-links list-unstyled mb-0">
+          <li><a href="#">Alternative Rock</a></li>
+          <li><a href="#">Cinematic Sound</a></li>
+          <li><a href="#">Epic Sound</a></li>
+          <li><a href="#">Rap Rock</a></li>
+          <li><a href="#">Nu Metal</a></li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-3">
+        <h6 class="footer-title">Listen Now</h6>
+        <p class="footer-text mb-3">
+          Follow ImagineStrings for new music, visuals and upcoming releases.
+        </p>
+
+        <div class="d-grid gap-2">
+          <a href="https://www.youtube.com/@Imaginestrings" target="_blank" class="btn btn-danger">
+            Subscribe on YouTube
+          </a>
+          <a href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank" class="btn btn-outline-light">
+            Open Spotify
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider my-4">
+
+    <div class="row gy-3 align-items-center text-center text-md-start">
+      <div class="col-12 col-md-6">
+        <p class="footer-copy mb-0">© 2026 ImagineStrings. All rights reserved.</p>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-3">
+          <a href="#" class="footer-bottom-link">Privacy</a>
+          <a href="#" class="footer-bottom-link">Terms</a>
+          <a href="#home" class="footer-bottom-link">Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
