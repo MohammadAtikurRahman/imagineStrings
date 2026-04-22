@@ -143,6 +143,117 @@
             box-shadow: none;
         }
 
+        .tech-stack-section {
+            background: transparent;
+        }
+
+        .tech-stack-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 2rem;
+        }
+
+        .tech-stack-head {
+            margin-bottom: 2rem;
+        }
+
+        .tech-label {
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            font-size: .78rem;
+            color: #b89cff;
+            font-weight: 800;
+            margin-bottom: .8rem;
+        }
+
+        .tech-heading {
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: .7rem;
+        }
+
+        .tech-subheading {
+            color: #cfd3ea;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .tech-item {
+            height: 100%;
+            min-height: 150px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+            text-align: center;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139, 93, 255, 0.35);
+        }
+
+        .tech-icon-wrap {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+        }
+
+        .tech-icon-img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .tech-name {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.35;
+        }
+
+        @media (max-width: 767.98px) {
+            .tech-stack-box {
+                padding: 1.25rem;
+            }
+
+            .tech-item {
+                min-height: 135px;
+                padding: 1rem .8rem;
+            }
+
+            .tech-icon-wrap {
+                width: 58px;
+                height: 58px;
+                margin-bottom: 0.85rem;
+            }
+
+            .tech-icon-img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .tech-name {
+                font-size: 0.88rem;
+            }
+        }
+
         .btn-purple {
             background: linear-gradient(135deg, #6a1bff, #8b5dff);
             border: none;
@@ -472,9 +583,126 @@
 
     </section>
 
+    <section class="tech-stack-section py-5" id="technology">
+        <div class="container">
+            <div class="tech-stack-box">
+                <div class="text-center tech-stack-head">
+                    <p class="tech-label">TECH STACK</p>
+                    <h2 class="tech-heading">Technologies We Used</h2>
+                    <p class="tech-subheading">
+                        Tools, models and workflow used behind the ImagineStrings creative process.
+                    </p>
+                </div>
+
+                <div class="row g-3 justify-content-center">
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/python.png" alt="Python" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">Python</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/comfyui.png" alt="ComfyUI" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">ComfyUI</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/acestep5.png" alt="Ace-Step 5" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">Ace-Step 1.5 Model</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/huggingface.png" alt="Hugging Face" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">Hugging Face</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/javascript.png" alt="JavaScript" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">JavaScript</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/flux.png" alt="FLUX" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">FLUX Model</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/sdxl.png" alt="SDXL" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">SDXL Model</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/whisper.png" alt="Whisper" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">Whisper(ASR System)</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/FL_Studio_2024.webp" alt="CLIP" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">FL Studio</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/openai.png" alt="CLIP" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">OPEN AI</h6>
+                        </div>
+                    </div>
 
 
-    
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="tech-item">
+                            <div class="tech-icon-wrap">
+                                <img src="assets/icons/suno.png" alt="CLIP" class="tech-icon-img">
+                            </div>
+                            <h6 class="tech-name">SUNO AI</h6>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <section class="section-pad" id="album">
         <div class="container">
