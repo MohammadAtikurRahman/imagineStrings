@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImagineStrings | Audio Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+     :root {
+            --purple: #6a1bff;
+            --purple-2: #8b5dff;
+            --text-soft: #cfd3ea;
+            --border-soft: rgba(255, 255, 255, 0.08);
+              --bg:#05060b;
+  --bg2:#0b0d16;
+  --card:#0c1018;
+  --line:rgba(255,255,255,.08);
+  --text:#ffffff;
+  --muted:#b8bfd6;
+
+  --red:#ff4b5c;
+  --green:#18c37d;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at top right, rgba(106, 27, 255, .18), transparent 30%),
+                linear-gradient(180deg, #05060b 0%, #0b0d16 100%);
+            color: var(--text);
+        }
+
+        /* .navbar-custom {
+            background: rgba(5, 6, 11, .92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            padding: 14px 0;
+        }
+
+        .subscribe-btn {
+            background: var(--red);
+            border: none;
+            color: #fff;
+            padding: 5px 16px;
+            border-radius: 7px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+        }
+
+        .subscribe-btn:hover {
+            background: #dc3545;
+            color: #fff;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, .78) !important;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            color: #fff !important;
+        }
+
+        .listen-btn {
+            background: linear-gradient(135deg, var(--purple), var(--purple2));
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 14px 30px rgba(106, 27, 255, .35);
+        }
+
+        .listen-btn:hover {
+            color: #fff;
+        }
+ */
+
+    .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 7px;
+            font-weight: 600;
+            padding: 5px 16px;
+        }
+
+.navbar-custom{
+  background:rgba(5,6,11,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  padding:14px 0;
+}
+
+/* .subscribe-btn{
+  background:var(--red);
+  border:none;
+  color:#fff;
+  height:46px;
+  padding:0 20px;
+  border-radius:14px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.subscribe-btn:hover{
+  background:#ff384c;
+  color:#fff;
+} */
+
+.nav-link{
+  color:rgba(255,255,255,.78)!important;
+  font-weight:600;
+}
+
+.nav-link:hover{
+  color:#fff!important;
+}
+
+.listen-btn{
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  color:#fff;
+  border:none;
+  border-radius:16px;
+  padding:12px 26px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 14px 30px rgba(106,27,255,.35);
+}
+
+.listen-btn:hover{
+  color:#fff;
+}
+
+
+ .btn-purple {
+            background: linear-gradient(135deg, var(--purple), var(--purple-2));
+            border: none;
+            color: #fff;
+            box-shadow: 0 12px 28px rgba(106, 27, 255, 0.35);
+        }
+
+        .btn-purple:hover {
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+
+
+
+        .page-space {
+            height: 95px;
+        }
+
+        .library-wrap {
+            max-width: 1180px;
+            margin: 0 auto 40px;
+            background: rgba(12, 16, 24, .9);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+        }
+
+        .library-top {
+            padding: 20px;
+            border-bottom: 1px solid var(--line);
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .library-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .library-sub {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .filter-input,
+        .filter-select {
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .08);
+            color: #fff;
+            min-height: 48px;
+            border-radius: 12px;
+        }
+
+        .filter-input::placeholder {
+            color: #99a2c6;
+        }
+
+        .filter-input:focus,
+        .filter-select:focus {
+            background: rgba(255, 255, 255, .08);
+            border-color: rgba(139, 93, 255, .4);
+            color: #fff;
+            box-shadow: none;
+        }
+
+        .filter-select option {
+            color: #111;
+        }
+
+        .chip-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .chip {
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .07);
+            color: #fff;
+            font-size: .9rem;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .chip.active {
+            background: rgba(106, 27, 255, .16);
+            border-color: rgba(139, 93, 255, .28);
+        }
+
+        .list-head {
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            color: var(--muted);
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            background: rgba(255, 255, 255, .015);
+        }
+
+        .track-row {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            transition: .2s;
+        }
+
+        .track-row:hover {
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .cover {
+            width: 56px;
+            height: 56px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #24345a, #7b3fff);
+            flex-shrink: 0;
+        }
+
+        .cover.c2 {
+            background: linear-gradient(135deg, #1c3740, #53b7ff);
+        }
+
+        .cover.c3 {
+            background: linear-gradient(135deg, #3e1d1d, #ff9b54);
+        }
+
+        .cover.c4 {
+            background: linear-gradient(135deg, #3f215f, #e35dff);
+        }
+
+        .cover.c5 {
+            background: linear-gradient(135deg, #203128, #48e58f);
+        }
+
+        .cover.c6 {
+            background: linear-gradient(135deg, #2d263b, #8194ff);
+        }
+
+        .track-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .track-artist {
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: .76rem;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .tag.free {
+            background: rgba(24, 195, 125, .14);
+            border: 1px solid rgba(24, 195, 125, .28);
+            color: #92f0c7;
+        }
+
+        .tag.paid {
+            background: rgba(106, 27, 255, .14);
+            border: 1px solid rgba(139, 93, 255, .28);
+            color: #e0d3ff;
+        }
+
+        .wave {
+            height: 46px;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            opacity: .65;
+            min-width: 180px;
+        }
+
+        .wave span {
+            display: block;
+            width: 3px;
+            border-radius: 999px;
+            background: rgba(190, 197, 222, .56);
+        }
+
+        .meta-main {
+            font-size: .92rem;
+            font-weight: 600;
+        }
+
+        .meta-sub {
+            display: block;
+            color: var(--muted);
+            font-size: .82rem;
+            margin-top: 2px;
+        }
+
+        .action-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .btn-mini {
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: .9rem;
+            font-weight: 600;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-preview {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, .12);
+            color: #fff;
+        }
+
+        .btn-download {
+            background: rgba(24, 195, 125, .14);
+            border: 1px solid rgba(24, 195, 125, .28);
+            color: #92f0c7;
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, var(--purple), var(--purple2));
+            color: #fff;
+        }
+
+        .audio-box {
+            display: none;
+            margin-top: 14px;
+        }
+
+        .audio-box audio {
+            width: 100%;
+            height: 42px;
+        }
+
+        .empty-note {
+            padding: 18px 20px 22px;
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            padding: 24px 0;
+            color: var(--muted);
+        }
+
+        @media (max-width: 991.98px) {
+            .action-group {
+                justify-content: flex-start;
+            }
+
+            .wave {
+                min-width: 100%;
+            }
+
+            .track-name {
+                white-space: normal;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .library-title {
+                font-size: 1.6rem;
+            }
+
+            .page-space {
+                height: 88px;
+            }
+
+            .library-wrap {
+                border-radius: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- 
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+        <div class="container">
+            <a href="https://www.youtube.com/@Imaginestrings" target="_blank" class=" btn btn-danger subscribe-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M8.051 1.999h-.102C6.347 2 4.52 2.02 3.284 2.153 2.05 2.285 1.18 2.577.527 3.23-.125 3.882-.417 4.752-.55 5.986-.682 7.22-.702 9.047-.703 10.65v.102c.001 1.603.021 3.43.153 4.664.133 1.234.425 2.104 1.078 2.757.653.652 1.523.945 2.757 1.077 1.236.133 3.063.153 4.665.154h.102c1.602-.001 3.429-.021 4.665-.154 1.234-.132 2.104-.425 2.757-1.077.653-.653.945-1.523 1.078-2.757.132-1.235.152-3.062.153-4.664v-.102c-.001-1.603-.021-3.43-.153-4.664-.133-1.234-.425-2.104-1.078-2.757-.653-.653-1.523-.945-2.757-1.077C11.48 2.02 9.653 2 8.051 1.999zm-1.55 4.5 4.5 2.5-4.5 2.5v-5z" />
+                </svg>
+                Subscribe
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#">Audio Library</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#album">Album</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank">Spotify</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/@Imaginestrings"
+                            target="_blank">YouTube</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank"
+                            class="listen-btn">
+                            Listen Now
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container py-2">
+            <a href="https://www.youtube.com/@Imaginestrings" target="_blank" class="btn btn-danger youtube-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"
+                    class="me-2">
+                    <path
+                        d="M8.051 1.999h-.102C6.347 2 4.52 2.02 3.284 2.153 2.05 2.285 1.18 2.577.527 3.23-.125 3.882-.417 4.752-.55 5.986-.682 7.22-.702 9.047-.703 10.65v.102c.001 1.603.021 3.43.153 4.664.133 1.234.425 2.104 1.078 2.757.653.652 1.523.945 2.757 1.077 1.236.133 3.063.153 4.665.154h.102c1.602-.001 3.429-.021 4.665-.154 1.234-.132 2.104-.425 2.757-1.077.653-.653.945-1.523 1.078-2.757.132-1.235.152-3.062.153-4.664v-.102c-.001-1.603-.021-3.43-.153-4.664-.133-1.234-.425-2.104-1.078-2.757-.653-.653-1.523-.945-2.757-1.077C11.48 2.02 9.653 2 8.051 1.999zm-1.55 4.5 4.5 2.5-4.5 2.5v-5z" />
+                </svg>
+                Subscribe
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="./library.html">Audio Libary</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="#album">Album</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#spotify">Spotify</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#youtube">YouTube</a></li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-purple px-4"
+                            href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank">Listen Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-space"></div>
+
+    <div class="container">
+        <div class="library-wrap">
+            <div class="library-top">
+                <div class="library-title">Music Library</div>
+                <div class="library-sub">Pixabay-style audio list with filter, genre, preview, free download and paid
+                    buy options.</div>
+
+                <div class="row g-3">
+                    <div class="col-lg-4">
+                        <input type="text" id="searchInput" class="form-control filter-input"
+                            placeholder="Search music title...">
+                    </div>
+
+                    <div class="col-md-4 col-lg-3">
+                        <select id="genreFilter" class="form-select filter-select">
+                            <option value="all">All Genres</option>
+                            <option value="alternative rock">Alternative Rock</option>
+                            <option value="cinematic">Cinematic</option>
+                            <option value="epic">Epic</option>
+                            <option value="rap rock">Rap Rock</option>
+                            <option value="nu metal">Nu Metal</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 col-lg-2">
+                        <select id="typeFilter" class="form-select filter-select">
+                            <option value="all">All Type</option>
+                            <option value="free">Free Music</option>
+                            <option value="paid">Paid Music</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3">
+                        <select class="form-select filter-select">
+                            <option>Newest First</option>
+                            <option>Popular</option>
+                            <option>Free First</option>
+                            <option>Paid First</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chip-bar">
+                <button class="chip active filter-chip" data-filter="all">All Music</button>
+                <button class="chip filter-chip" data-filter="free">Free Music</button>
+                <button class="chip filter-chip" data-filter="paid">Paid Music</button>
+                <button class="chip genre-chip-btn" data-genre="alternative rock">Alternative Rock</button>
+                <button class="chip genre-chip-btn" data-genre="cinematic">Cinematic</button>
+                <button class="chip genre-chip-btn" data-genre="epic">Epic</button>
+                <button class="chip genre-chip-btn" data-genre="rap rock">Rap Rock</button>
+                <button class="chip genre-chip-btn" data-genre="nu metal">Nu Metal</button>
+            </div>
+
+            <div class="list-head d-none d-lg-block">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">Track</div>
+                    <div class="col-lg-4">Preview</div>
+                    <div class="col-lg-1">Time</div>
+                    <div class="col-lg-2">Genre</div>
+                    <div class="col-lg-2 text-end">Action</div>
+                </div>
+            </div>
+
+            <div id="trackList">
+
+                <div class="track-row track-item" data-title="Fractured Echo" data-genre="alternative rock"
+                    data-type="paid">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="cover"></div>
+                                <div>
+                                    <div class="track-name">Fractured Echo</div>
+                                    <div class="track-artist">ImagineStrings</div>
+                                    <span class="tag paid">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="wave">
+                                <span style="height:12px"></span><span style="height:26px"></span><span
+                                    style="height:18px"></span><span style="height:34px"></span><span
+                                    style="height:22px"></span><span style="height:28px"></span><span
+                                    style="height:35px"></span><span style="height:18px"></span><span
+                                    style="height:24px"></span><span style="height:38px"></span><span
+                                    style="height:30px"></span><span style="height:16px"></span><span
+                                    style="height:26px"></span><span style="height:34px"></span><span
+                                    style="height:21px"></span><span style="height:14px"></span><span
+                                    style="height:28px"></span><span style="height:36px"></span><span
+                                    style="height:18px"></span><span style="height:25px"></span><span
+                                    style="height:32px"></span><span style="height:29px"></span>
+                            </div>
+                            <div class="audio-box">
+                                <audio controls>
+                                    <source src="assets/fractured-echo.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-1">
+                            <div class="meta-main">3:42<span class="meta-sub">111 BPM</span></div>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <div class="meta-main">Alternative Rock<span class="meta-sub">Dark, Emotional</span></div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="action-group">
+                                <button class="btn-mini btn-preview preview-toggle" type="button">Hear</button>
+                                <a href="#" class="btn-mini btn-buy">Buy $9</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-row track-item" data-title="Break Me Down" data-genre="cinematic" data-type="paid">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="cover c2"></div>
+                                <div>
+                                    <div class="track-name">Break Me Down</div>
+                                    <div class="track-artist">ImagineStrings</div>
+                                    <span class="tag paid">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="wave">
+                                <span style="height:20px"></span><span style="height:30px"></span><span
+                                    style="height:38px"></span><span style="height:16px"></span><span
+                                    style="height:28px"></span><span style="height:36px"></span><span
+                                    style="height:19px"></span><span style="height:24px"></span><span
+                                    style="height:33px"></span><span style="height:25px"></span><span
+                                    style="height:13px"></span><span style="height:29px"></span><span
+                                    style="height:35px"></span><span style="height:18px"></span><span
+                                    style="height:31px"></span><span style="height:22px"></span><span
+                                    style="height:37px"></span><span style="height:20px"></span><span
+                                    style="height:27px"></span><span style="height:32px"></span>
+                            </div>
+                            <div class="audio-box">
+                                <audio controls>
+                                    <source src="assets/break-me-down.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-1">
+                            <div class="meta-main">3:58<span class="meta-sub">98 BPM</span></div>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <div class="meta-main">Cinematic<span class="meta-sub">Epic, Heavy</span></div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="action-group">
+                                <button class="btn-mini btn-preview preview-toggle" type="button">Hear</button>
+                                <a href="#" class="btn-mini btn-buy">Buy $12</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-row track-item" data-title="Ashes in the Wind" data-genre="epic" data-type="paid">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="cover c3"></div>
+                                <div>
+                                    <div class="track-name">Ashes in the Wind</div>
+                                    <div class="track-artist">ImagineStrings</div>
+                                    <span class="tag paid">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="wave">
+                                <span style="height:14px"></span><span style="height:28px"></span><span
+                                    style="height:35px"></span><span style="height:19px"></span><span
+                                    style="height:32px"></span><span style="height:21px"></span><span
+                                    style="height:39px"></span><span style="height:26px"></span><span
+                                    style="height:16px"></span><span style="height:31px"></span><span
+                                    style="height:34px"></span><span style="height:18px"></span><span
+                                    style="height:24px"></span><span style="height:36px"></span><span
+                                    style="height:20px"></span><span style="height:29px"></span><span
+                                    style="height:38px"></span>
+                            </div>
+                            <div class="audio-box">
+                                <audio controls>
+                                    <source src="assets/ashes-in-the-wind.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-1">
+                            <div class="meta-main">4:11<span class="meta-sub">103 BPM</span></div>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <div class="meta-main">Epic<span class="meta-sub">Trailer, Emotional</span></div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="action-group">
+                                <button class="btn-mini btn-preview preview-toggle" type="button">Hear</button>
+                                <a href="#" class="btn-mini btn-buy">Buy $14</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-row track-item" data-title="Static Reign" data-genre="rap rock" data-type="free">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="cover c4"></div>
+                                <div>
+                                    <div class="track-name">Static Reign</div>
+                                    <div class="track-artist">ImagineStrings</div>
+                                    <span class="tag free">Free</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="wave">
+                                <span style="height:12px"></span><span style="height:22px"></span><span
+                                    style="height:31px"></span><span style="height:18px"></span><span
+                                    style="height:28px"></span><span style="height:34px"></span><span
+                                    style="height:16px"></span><span style="height:24px"></span><span
+                                    style="height:30px"></span><span style="height:22px"></span><span
+                                    style="height:14px"></span><span style="height:28px"></span><span
+                                    style="height:35px"></span><span style="height:20px"></span><span
+                                    style="height:26px"></span><span style="height:33px"></span>
+                            </div>
+                            <div class="audio-box">
+                                <audio controls>
+                                    <source src="assets/static-reign.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-1">
+                            <div class="meta-main">2:56<span class="meta-sub">90 BPM</span></div>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <div class="meta-main">Rap Rock<span class="meta-sub">Energetic, Sharp</span></div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="action-group">
+                                <button class="btn-mini btn-preview preview-toggle" type="button">Hear</button>
+                                <a href="#" class="btn-mini btn-download">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-row track-item" data-title="Lost Transmission" data-genre="cinematic"
+                    data-type="free">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="cover c5"></div>
+                                <div>
+                                    <div class="track-name">Lost Transmission</div>
+                                    <div class="track-artist">ImagineStrings</div>
+                                    <span class="tag free">Free</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="wave">
+                                <span style="height:18px"></span><span style="height:29px"></span><span
+                                    style="height:35px"></span><span style="height:21px"></span><span
+                                    style="height:30px"></span><span style="height:15px"></span><span
+                                    style="height:24px"></span><span style="height:34px"></span><span
+                                    style="height:19px"></span><span style="height:27px"></span><span
+                                    style="height:38px"></span><span style="height:18px"></span><span
+                                    style="height:23px"></span><span style="height:31px"></span><span
+                                    style="height:16px"></span><span style="height:26px"></span><span
+                                    style="height:33px"></span>
+                            </div>
+                            <div class="audio-box">
+                                <audio controls>
+                                    <source src="assets/lost-transmission.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-1">
+                            <div class="meta-main">3:20<span class="meta-sub">88 BPM</span></div>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <div class="meta-main">Cinematic<span class="meta-sub">Dreamy, Dark</span></div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="action-group">
+                                <button class="btn-mini btn-preview preview-toggle" type="button">Hear</button>
+                                <a href="#" class="btn-mini btn-download">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="track-row track-item" data-title="Beneath the Noise" data-genre="nu metal" data-type="paid">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="cover c6"></div>
+                                <div>
+                                    <div class="track-name">Beneath the Noise</div>
+                                    <div class="track-artist">ImagineStrings</div>
+                                    <span class="tag paid">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="wave">
+                                <span style="height:14px"></span><span style="height:24px"></span><span
+                                    style="height:32px"></span><span style="height:18px"></span><span
+                                    style="height:30px"></span><span style="height:36px"></span><span
+                                    style="height:22px"></span><span style="height:28px"></span><span
+                                    style="height:38px"></span><span style="height:16px"></span><span
+                                    style="height:24px"></span><span style="height:33px"></span><span
+                                    style="height:18px"></span><span style="height:29px"></span><span
+                                    style="height:37px"></span><span style="height:20px"></span><span
+                                    style="height:27px"></span>
+                            </div>
+                            <div class="audio-box">
+                                <audio controls>
+                                    <source src="assets/beneath-the-noise.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-1">
+                            <div class="meta-main">3:48<span class="meta-sub">100 BPM</span></div>
+                        </div>
+                        <div class="col-6 col-lg-2">
+                            <div class="meta-main">Nu Metal<span class="meta-sub">Heavy, Melodic</span></div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="action-group">
+                                <button class="btn-mini btn-preview preview-toggle" type="button">Hear</button>
+                                <a href="#" class="btn-mini btn-buy">Buy $10</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="empty-note">
+                Replace the mp3 paths, download links and buy links with your real files.
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <div>ImagineStrings Audio Library</div>
+            <div class="d-flex gap-3">
+                <a href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank"
+                    class="text-decoration-none text-light">Spotify</a>
+                <a href="https://www.youtube.com/@Imaginestrings" target="_blank"
+                    class="text-decoration-none text-light">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const genreFilter = document.getElementById('genreFilter');
+        const typeFilter = document.getElementById('typeFilter');
+        const tracks = document.querySelectorAll('.track-item');
+        const typeChips = document.querySelectorAll('.filter-chip');
+        const genreChips = document.querySelectorAll('.genre-chip-btn');
+
+        let activeType = 'all';
+        let activeGenre = 'all';
+
+        function filterTracks() {
+            const search = searchInput.value.toLowerCase().trim();
+            const genreValue = activeGenre === 'all' ? genreFilter.value : activeGenre;
+            const typeValue = activeType === 'all' ? typeFilter.value : activeType;
+
+            tracks.forEach(track => {
+                const title = track.dataset.title.toLowerCase();
+                const genre = track.dataset.genre.toLowerCase();
+                const type = track.dataset.type.toLowerCase();
+
+                const matchSearch = title.includes(search);
+                const matchGenre = genreValue === 'all' || genre === genreValue;
+                const matchType = typeValue === 'all' || type === typeValue;
+
+                track.style.display = (matchSearch && matchGenre && matchType) ? '' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('input', () => {
+            activeGenre = 'all';
+            genreChips.forEach(c => c.classList.remove('active'));
+            filterTracks();
+        });
+
+        genreFilter.addEventListener('change', () => {
+            activeGenre = 'all';
+            genreChips.forEach(c => c.classList.remove('active'));
+            filterTracks();
+        });
+
+        typeFilter.addEventListener('change', () => {
+            activeType = 'all';
+            typeChips.forEach(c => c.classList.remove('active'));
+            typeChips[0].classList.add('active');
+            filterTracks();
+        });
+
+        typeChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                typeChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeType = chip.dataset.filter;
+                typeFilter.value = 'all';
+                filterTracks();
+            });
+        });
+
+        genreChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                genreChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeGenre = chip.dataset.genre;
+                genreFilter.value = 'all';
+                filterTracks();
+            });
+        });
+
+        document.querySelectorAll('.preview-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const row = btn.closest('.track-row');
+                const box = row.querySelector('.audio-box');
+                const isOpen = box.style.display === 'block';
+
+                document.querySelectorAll('.audio-box').forEach(b => {
+                    b.style.display = 'none';
+                    const audio = b.querySelector('audio');
+                    if (audio) {
+                        audio.pause();
+                    }
+                });
+
+                if (!isOpen) {
+                    box.style.display = 'block';
+                }
+            });
+        });
+
+        filterTracks();
+    </script>
+
+</body>
+
+</html>
