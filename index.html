@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ImagineStrings | AI Music Studio</title>
+  <meta name="description" content="ImagineStrings is an AI based music channel focused on alternative rock, cinematic sound, epic sound, rap rock and nu metal." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #6a1bff;
+      --purple-2: #8b5dff;
+      --text-soft: #cfd3ea;
+      --border-soft: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(106, 27, 255, 0.20), transparent 28%),
+        radial-gradient(circle at left bottom, rgba(124, 77, 255, 0.12), transparent 24%),
+        linear-gradient(180deg, #05050a 0%, #0b0c18 100%);
+      color: #fff;
+    }
+
+    .navbar {
+      background: rgba(5, 5, 10, 0.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+
+    .brand-icon {
+      display: grid;
+      grid-template-columns: repeat(4, 10px);
+      gap: 4px;
+      align-items: end;
+    }
+
+    .brand-col {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 4px;
+    }
+
+    .brand-col span {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: #f5f5f5;
+    }
+
+    .brand-col.purple span { background: var(--purple); }
+
+    .brand-name {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .brand-name span { color: var(--purple-2); }
+
+    .nav-link { color: rgba(255,255,255,0.78) !important; }
+    .nav-link:hover { color: #fff !important; }
+
+    .btn-purple {
+      background: linear-gradient(135deg, var(--purple), var(--purple-2));
+      border: none;
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(106, 27, 255, 0.35);
+    }
+
+    .btn-purple:hover {
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 7rem 0 4rem;
+    }
+
+    .hero-logo {
+      width: 100%;
+      max-width: 840px;
+      border-radius: 18px;
+      display: block;
+      margin: 0 auto 2rem;
+      background: #000;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: .68rem 1rem;
+      color: #f3f4ff;
+      font-size: .92rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+      font-size: 1.02rem;
+    }
+
+    .section-pad { padding: 4.5rem 0; }
+
+    .mini-label {
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      color: #b89cff;
+      font-weight: 800;
+      margin-bottom: .8rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.9rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: .8rem;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: var(--text-soft);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-soft);
+      border-radius: 24px;
+      box-shadow: 0 22px 40px rgba(0,0,0,0.24);
+      backdrop-filter: blur(8px);
+    }
+
+    .embed-card,
+    .simple-card {
+      padding: 1.4rem;
+    }
+
+    .genre-chip {
+      display: inline-block;
+      padding: .6rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 999px;
+      margin: .35rem;
+      color: #efeefe;
+      font-size: .94rem;
+    }
+
+    .album-embed iframe,
+    .artist-embed iframe {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    .album-embed iframe {
+      min-height: 520px;
+    }
+
+    .logo-small {
+      max-width: 200px;
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+      margin: 0 auto 1rem;
+      background: #000;
+    }
+
+    .footer-link {
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+
+    .footer-link:hover { color: #fff; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 767px) {
+      .hero { min-height: auto; }
+      .album-embed iframe { min-height: 430px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container py-2">
+      <a class="navbar-brand" href="#home">
+        <div class="brand-wrap">
+          <div class="brand-icon">
+            <div class="brand-col">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="brand-col purple">
+              <span></span><span></span>
+            </div>
+            <div class="brand-col">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="brand-col purple">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="brand-name">Imagine<span>Strings</span></div>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#album">Album</a></li>
+          <li class="nav-item"><a class="nav-link" href="#spotify">Spotify</a></li>
+          <li class="nav-item"><a class="nav-link" href="#youtube">YouTube</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-purple px-4" href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank">Listen Now</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <img src="assets/logo-wide.png" alt="ImagineStrings logo" class="hero-logo">
+      <div class="eyebrow">AI Based Music Channel</div>
+      <h1>ImagineStrings</h1>
+      <p>Alternative rock, cinematic sound, epic sound, rap rock and nu metal inspired music.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank" class="btn btn-purple btn-lg px-4">Open Spotify</a>
+        <a href="https://www.youtube.com/@Imaginestrings" target="_blank" class="btn btn-outline-light btn-lg px-4">Open YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="album">
+    <div class="container">
+      <p class="mini-label text-center">Featured Album</p>
+      <h2 class="section-title">Listen to the album</h2>
+      <p class="section-subtitle">Big album section for direct play.</p>
+      <div class="glass-card embed-card album-embed">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/0RaTQi5GmlvuCe8YDdQwmp?utm_source=generator" width="100%" height="560" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="spotify">
+    <div class="container">
+      <p class="mini-label text-center">Spotify</p>
+      <h2 class="section-title">Official artist profile</h2>
+      <div class="glass-card embed-card artist-embed">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/4j2v2KtwAPM3a27q3kFZLl?utm_source=generator" width="100%" height="380" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container text-center">
+      <p class="mini-label">Style</p>
+      <h2 class="section-title">Core sound</h2>
+      <div class="mt-4">
+        <span class="genre-chip">Alternative Rock</span>
+        <span class="genre-chip">Cinematic Sound</span>
+        <span class="genre-chip">Epic Sound</span>
+        <span class="genre-chip">Rap Rock</span>
+        <span class="genre-chip">Nu Metal</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="youtube">
+    <div class="container">
+      <div class="glass-card simple-card text-center">
+        <img src="assets/logo-square.png" alt="ImagineStrings logo square" class="logo-small">
+        <p class="mini-label text-center">YouTube Channel</p>
+        <h2 class="section-title mb-3">Watch on YouTube</h2>
+        <p class="section-subtitle">Music videos, visuals and channel updates.</p>
+        <a href="https://www.youtube.com/@Imaginestrings" target="_blank" class="btn btn-purple px-4">Visit Channel</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4">
+    <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
+      <div>
+        <strong>ImagineStrings</strong>
+      </div>
+      <div>
+        <a class="footer-link" href="https://open.spotify.com/artist/4j2v2KtwAPM3a27q3kFZLl" target="_blank">Spotify</a>
+        <a class="footer-link" href="https://www.youtube.com/@Imaginestrings" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
